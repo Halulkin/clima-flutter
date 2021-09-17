@@ -5,13 +5,12 @@ class Location {
 
   Location();
 
-  getCurrentLocation() async {
+  Future<void> getCurrentLocation() async {
     try {
       Position position = await Geolocator.getCurrentPosition(
           desiredAccuracy: LocationAccuracy.low);
       longitude = position.longitude;
       latitude = position.latitude;
-      print("$longitude - $longitude");
     } catch (e) {
       print(e);
     }
